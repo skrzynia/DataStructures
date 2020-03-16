@@ -62,10 +62,12 @@ public class TreesTest {
 		q.add(node);
 		
 		
+		
 		while(!q.isEmpty()) {
 			
 			TreeNode temporary = q.poll();
 			System.out.print(temporary.key + " ");
+			
 			
 			if(temporary.left != null)
 				q.add(temporary.left);
@@ -78,6 +80,14 @@ public class TreesTest {
 		}
 		
 		
+	}
+	
+	static int height(TreeNode node) {
+		
+		if(node == null)
+		return 0;
+		else
+		return 1 + Math.max(height(node.left), height(node.right));
 	}
 	
 	
@@ -104,6 +114,8 @@ public class TreesTest {
 		System.out.println();
 		System.out.print("Level Order Traversal: ");
 		levelOrderTraversal(tree);
+		System.out.println();
+		System.out.println("Height: " + height(tree));
 
 	}
 
